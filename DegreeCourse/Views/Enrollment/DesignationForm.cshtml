@@ -1,0 +1,32 @@
+﻿@model Model.ModelEnrollmentM.ModelEnrollment
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="DesignationForm" asp-route-id="@Model" method="post">
+            <input type="hidden" asp-for="EnrollmentId" />
+
+            <div class="row">
+                <div class="col-lg-12 mb-3">
+                    <label class="form-label" asp-for="StudentId">StudentId</label>
+                    <input type="text" asp-for="StudentId" class="form-control" autocomplete="off" />
+                    <span asp-validation-for="StudentId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 mb-3">
+                    <label class="form-label" asp-for="CourseId">CourseId</label>
+                    <input type="text" asp-for="CourseId" class="form-control" autocomplete="off" />
+                    <span asp-validation-for="CourseId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                    <a href="/Enrollment/Designation" class="btn btn-danger">Back</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

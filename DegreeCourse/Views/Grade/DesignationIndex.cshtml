@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Model.ModelGradeM.ModelGrade>
+
+<div class="col-12 formHeader">
+    <div class="formHeaderContent">
+        <h6>
+            Designation
+        </h6>
+    </div>
+    <table id="DesignationTable" class="table table-light table-striped table-hover display" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    GradeId
+                </th>
+                <th>
+                    EnrollmentId
+                </th>
+                <th>
+                    Grade1
+                </th>
+                <th class="text-center">
+                    <a href="/User/DesignationForm/0" class="btn btn-success text-white">
+                        <i class='fa-solid fa-file-circle-plus'></i>
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var count = 0;
+                foreach (var item in Model)
+                {
+                    count++;
+                    <tr>
+                        <td>@count</td>
+                        <td>@item.GradeId</td>
+                        <td>@item.EnrollmentId</td>
+                        <td>@item.Grade1</td>
+                        <td class="text-center">
+                            <div>
+                                <a href="/Grade/DesignationForm?ID=@item.GradeId" class="btn btn-outline-warning"><i class="fa-solid fa-edit"></i></a>
+
+                                <a href="/Grade/DeleteDesignation?ID=@item.GradeId" class="btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+</div>

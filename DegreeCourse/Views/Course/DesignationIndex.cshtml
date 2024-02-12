@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Model.ModelCourseM.ModelCourse>
+
+
+<div class="col-12 formHeader">
+    <div class="formHeaderContent">
+        <h6>
+            Course
+        </h6>
+    </div>
+    <table id="DesignationTable" class="table table-light table-striped table-hover display" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    CourseId
+                </th>
+                <th>
+                    CourseName
+                </th>
+                <th>
+                    CourseDescription
+                </th>
+                <th>
+                    CreditHours
+                </th>
+                <th class="text-center">
+                    <a href="/Course/DesignationForm/0" class="btn btn-success text-white">
+                        <i class='fa-solid fa-file-circle-plus'></i>
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var count = 0;
+                foreach (var item in Model)
+                {
+                    count++;
+                    <tr>
+                        <td>@count</td>
+                        <td>@item.CourseId</td>
+                        <td>@item.CourseName</td>
+                        <td>@item.CourseDescription</td>
+                        <td>@item.CreditHours</td>
+                        <td class="text-center">
+                            <div>
+                                <a href="/Course/DesignationForm?ID=@item.CourseId" class="btn btn-outline-warning"><i class="fa-solid fa-edit"></i></a>
+
+                                <a href="/Course/DeleteDesignation?ID=@item.CourseId" class="btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+</div>
